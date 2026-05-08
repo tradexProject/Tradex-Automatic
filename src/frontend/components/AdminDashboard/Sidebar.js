@@ -1,5 +1,5 @@
 import React from 'react';
-import { LayoutDashboard, Users, KeySquare, LogOut, Activity, ShieldCheck } from 'lucide-react';
+import { LayoutDashboard, Users, KeySquare, LogOut, UserCog, ShieldCheck } from 'lucide-react';
 
 function SidebarItem({ icon, label, isActive, badge, onClick }) {
   return (
@@ -60,7 +60,10 @@ export default function Sidebar({ activeTab, setActiveTab, pendingCount, onLogou
           <SidebarItem icon={<LayoutDashboard size={18} />} label="Overview" isActive={activeTab === 'overview'} onClick={() => setActiveTab('overview')} />
           <SidebarItem icon={<Users size={18} />} label="Requests" isActive={activeTab === 'requests'} badge={pendingCount} onClick={() => setActiveTab('requests')} />
           <SidebarItem icon={<KeySquare size={18} />} label="Inventory" isActive={activeTab === 'inventory'} onClick={() => setActiveTab('inventory')} />
+            <SidebarItem icon={<UserCog size={18} />} label="Profile" isActive={activeTab === 'profile'} onClick={() => setActiveTab('profile')} />
+
         </nav>
+        
       </div>
 
       <div className="p-4 border-t border-white/5">
