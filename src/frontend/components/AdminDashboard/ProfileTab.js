@@ -126,6 +126,7 @@ export default function ProfileTab({ showToast }) {
             </div>
           </div>
 
+                    
           <div className="pt-4 border-t border-white/5 mt-6">
             <button 
               type="submit"
