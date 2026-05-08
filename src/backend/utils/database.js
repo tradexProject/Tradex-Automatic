@@ -11,18 +11,12 @@ module.exports = {
     logging: console.log 
   },
   
-  test: {
+  production: {
     username: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME_TEST || "subscription_db_test",
+    database: process.env.DB_NAME,
     host: process.env.DB_HOST,
-    port: process.env.DB_PORT,
-    dialect: "postgres",
-    logging: false
-  },
-
-  production: {
-    use_env_variable: 'DATABASE_URL', 
+    port: process.env.DB_PORT || 6543,
     dialect: "postgres",
     dialectOptions: {
       ssl: {
