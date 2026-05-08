@@ -9,13 +9,14 @@ export const plansData = {
     duration: '1 Month',
     priceMonthly: '49', 
     priceAnnual: '49', 
-    description: 'Perfect for getting started with TradeX.',
+    description: 'Perfect entry into automation.',
+    isDisabled: true,
     features: [
-      'Access on 1 device',
-      'Supports Real & OTC markets',
-      'Works on all trading pairs',
-      'Smooth and easy setup',
-      'Core automation features included'
+      '1 Device Access',
+      'Real & OTC Markets Supported',
+      'All Trading Pairs Included',
+      'Smooth & Beginner-Friendly Setup',
+      'Essential Automation Features'
     ]
   },
   pro: { 
@@ -26,15 +27,16 @@ export const plansData = {
     priceAnnual: '99',
     oldPrice: '124',
     highlight: 'Limited Offer',
-    description: 'Designed for serious traders ready to scale.',
+    description: 'Built for traders ready to scale.',
+    isDisabled: false,
     features: [
-      'Access on 2 devices',
-      'Supports Real & OTC markets',
-      'Works on all trading pairs',
-      'Priority support',
-      'Remote full setup service',
-      'Advanced Risk Management system',
-      'Detailed Performance Analytics'
+      '2 Devices Access',
+      'Real & OTC Markets Supported',
+      'All Trading Pairs Included',
+      'Priority Support',
+      'Remote Full Setup Service',
+      'Advanced Risk Management',
+      'Performance Analytics'
     ]
   },
   institution: { 
@@ -45,17 +47,18 @@ export const plansData = {
     priceAnnual: '199', 
     oldPrice: '300',
     highlight: 'Limited Offer',
-    description: 'The complete TradeX experience for maximum performance.',
+    description: 'Maximum power. Full control.',
+    isDisabled: false,
     features: [
-      'Access on multiple devices (2+)',
-      'Supports Real & OTC markets',
-      'Works on all trading pairs',
-      'Private premium support',
-      'Works on multiple accounts',
-      'Remote full setup + VPS setup',
-      'Windows-ready optimized setup',
-      'Full Risk Management system',
-      'Advanced Performance Analytics'
+      'Multi-Device Access (2+)',
+      'Real & OTC Markets Supported',
+      'All Trading Pairs Included',
+      'Private Premium Support',
+      'Multi-Account Trading',
+      'Full Remote + VPS Setup',
+      'Optimized Windows Environment',
+      'Full Risk Management System SL/TP',
+      'Advanced Analytics'
     ]
   }
 };
