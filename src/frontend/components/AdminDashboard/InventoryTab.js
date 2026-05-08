@@ -1,5 +1,5 @@
-import React, { useState, useMemo } from 'react';
-import { KeySquare, Plus, X, Loader2, CheckCircle2, Lock, Search, Calendar, Filter } from 'lucide-react';
+import React, { useState, useMemo, useRef } from 'react';
+import { KeySquare, Plus, X, Loader2, CheckCircle2, Lock, Search, Calendar, Filter, Upload } from 'lucide-react';
 
 const AVAILABLE_PLANS = [
   'Starter Plan',
@@ -10,8 +10,9 @@ const AVAILABLE_PLANS = [
 export default function InventoryTab({ codes, onAddCodes }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-    const [bulkCodes, setBulkCodes] = useState(''); 
+  const [isSubmitting, setIsSubmitting] = useState(false); 
+  const [bulkCodes, setBulkCodes] = useState(''); 
+  const fileInputRef = useRef(null); 
   
   const [searchQuery, setSearchQuery] = useState('');
   const [planFilter, setPlanFilter] = useState('all');
@@ -40,12 +41,26 @@ export default function InventoryTab({ codes, onAddCodes }) {
   }), [codes]);
 
   const parsedCodesCount = useMemo(() => {
-    return bulkCodes.split(',').filter(c => c.trim() !== '').length;
+    return bulkCodes.split(/[,\n]+/).filter(c => c.trim() !== '').length;
   }, [bulkCodes]);
+
+  const handleFileUpload = (event) => {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const content = e.target.result;
+      setBulkCodes(prev => prev.trim() ? prev + '\n' + content : content);
+    };
+    reader.readAsText(file);
+    
+    event.target.value = null; 
+  };
 
   const handleSubmit = async () => {
     const finalCodes = bulkCodes
-      .split(',')
+      .split(/[,\n]+/)
       .map(c => c.trim())
       .filter(c => c !== '');
 
@@ -54,7 +69,7 @@ export default function InventoryTab({ codes, onAddCodes }) {
     setIsSubmitting(true);
     try {
       if (onAddCodes) await onAddCodes(finalCodes, selectedPlan);
-      setBulkCodes(''); // تصفير الحقل
+      setBulkCodes('');
       setSelectedPlan('');
       setIsModalOpen(false);
     } catch (error) {
@@ -194,7 +209,7 @@ export default function InventoryTab({ codes, onAddCodes }) {
             
             <div className="mb-6 mt-2">
               <h3 className="text-xl md:text-2xl font-bold text-white">Add Bulk Assets</h3>
-              <p className="text-xs text-gray-500 mt-1">Assign activation licenses separated by commas.</p>
+              <p className="text-xs text-gray-500 mt-1">Assign activation licenses manually or upload a .txt file.</p>
             </div>
             
             <div className="space-y-5 overflow-y-auto pr-2 custom-scrollbar">
@@ -207,23 +222,37 @@ export default function InventoryTab({ codes, onAddCodes }) {
                 </select>
               </div>
 
-              {/* Bulk Input */}
+              {/* Bulk Input & File Upload */}
               <div className="space-y-3">
                 <div className="flex justify-between items-center px-1">
                   <label className="text-[10px] font-black text-[#1E90FF] uppercase tracking-widest block">Activation Licenses</label>
-                  <span className="text-[10px] font-bold text-gray-500">{parsedCodesCount} Validated</span>
+                  
+                  <div className="flex items-center gap-3">
+                    <button 
+                      onClick={() => fileInputRef.current.click()}
+                      className="text-[10px] font-bold text-white bg-white/5 border border-white/10 hover:bg-white/10 px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition-all"
+                    >
+                      <Upload size={12} /> Upload .txt
+                    </button>
+                    <input 
+                      type="file" 
+                      accept=".txt" 
+                      ref={fileInputRef} 
+                      onChange={handleFileUpload} 
+                      className="hidden" 
+                    />
+                    
+                    <span className="text-[10px] font-bold text-gray-500 bg-black px-2 py-1 rounded-md border border-white/5">{parsedCodesCount} Validated</span>
+                  </div>
                 </div>
                 
                 <textarea 
                   value={bulkCodes}
                   onChange={(e) => setBulkCodes(e.target.value)}
-                  placeholder="CODE1, CODE2, CODE3..."
+                  placeholder="Paste codes here or upload a .txt file..."
                   rows={6}
                   className="w-full bg-white/[0.03] border border-white/10 rounded-xl p-4 text-sm text-white font-mono focus:border-[#1E90FF] focus:bg-white/[0.05] outline-none transition-all resize-none"
                 />
-                <p className="text-[10px] text-gray-500 px-1 text-center">
-                  Paste multiple codes separated by a comma.
-                </p>
               </div>
             </div>
 
