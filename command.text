@@ -1,0 +1,52 @@
+// ======================================================
+// COMMANDS - Next.js + Sequelize Project
+// ======================================================
+
+// ----------------------
+// Next.js Commands
+// ----------------------
+
+// Run development server :
+// npm run dev
+
+// Build project for production :
+// npm run build
+
+// Start production server
+// npm run start
+
+
+
+// ----------------------
+// Sequelize Migrations & Seeders
+// ----------------------
+
+// Create migration file
+// npx sequelize-cli migration:generate --name create-users
+
+// Run all migrations
+// npx sequelize-cli db:migrate
+
+// Undo last migration
+// npx sequelize-cli db:migrate:undo
+
+// Undo all migrations
+// npx sequelize-cli db:migrate:undo:all
+
+
+// ----------------------
+// Sequelize Seeders
+// ----------------------
+
+// Create seeder file
+// npx sequelize-cli seed:generate --name demo-users
+
+// Run all seeders
+// npx sequelize-cli db:seed:all
+
+// Undo last seeder
+// npx sequelize-cli db:seed:undo
+
+// Undo all seeders
+// npx sequelize-cli db:seed:undo:all
+
