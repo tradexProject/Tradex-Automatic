@@ -61,7 +61,7 @@ export default function PoliciesPage() {
               variants={itemVariants}
               className="text-5xl md:text-6xl font-black text-white tracking-tighter leading-none"
             >
-              Legal <span className="block sm:inline-block text-[#3B82F6] sm:ml-3 md:ml-4 drop-shadow-[0_0_25px_rgba(59,130,246,0.8)] [text-shadow:0_0_20px_rgba(59,130,246,0.5)] mt-1 sm:mt-0">Framework.</span>
+              Legal <span className="block sm:inline-block font-bold text-[#2B82EE] sm:ml-3 md:ml-4 drop-shadow-[0_0_8px_rgba(43,130,238,0.4)]">Framework.</span>
             </motion.h1>
             <motion.p variants={itemVariants} className="text-gray-500 text-lg max-w-2xl leading-relaxed">
               Transparent, secure, and built on trust. Our policies ensure your data is protected while you navigate the markets with  
