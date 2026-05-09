@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-const { User } = require("@/backend/models/user");
+const { User } = require("../../../../backend/models/user");
 
 const changePasswordSchema = z.object({
   currentPassword: z.string().min(1, "Current password is required"),
