@@ -101,6 +101,16 @@ function PaymentModal({ isOpen, onClose, plan, isAnnual }) {
   const [isAgreed, setIsAgreed] = useState(false);
   const [errors, setErrors] = useState({});
   const [copiedId, setCopiedId] = useState(null);
+  
+
+  const [toast, setToast] = useState({ show: false, message: '', type: 'error' });
+
+  const showToast = (message, type = 'error') => {
+    setToast({ show: true, message, type });
+    setTimeout(() => {
+      setToast((prev) => ({ ...prev, show: false }));
+    }, 4000); 
+  };
 
   useEffect(() => {
     if (isOpen) {
@@ -110,6 +120,7 @@ function PaymentModal({ isOpen, onClose, plan, isAnnual }) {
       setSubmitSuccess(false);
       setIsAgreed(false);
       setErrors({});
+      setToast({ show: false, message: '', type: 'error' });
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
@@ -165,10 +176,10 @@ function PaymentModal({ isOpen, onClose, plan, isAnnual }) {
         setTimeout(() => onClose(), 3000);
       } else {
         const data = await response.json();
-        alert(data.error || 'Submission failed');
+        showToast(data.error || 'Submission failed', 'error'); 
       }
     } catch (error) {
-      alert("Connection error. Try again.");
+      showToast("Connection error. Please try again.", 'error'); 
     } finally {
       setIsSubmitting(false);
     }
@@ -177,13 +188,34 @@ function PaymentModal({ isOpen, onClose, plan, isAnnual }) {
   return (
     <AnimatePresence>
       {isOpen && (
-        <motion.div 
-          key="modal-overlay"
-          initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[99999] flex items-center justify-center p-4 sm:p-6 pt-10 md:pt-16 pb-8"
-        >
+   <motion.div 
+  key="modal-overlay"
+  initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+  className="fixed inset-0 z-[99999] flex items-center justify-center p-4 sm:p-6 pt-10 md:pt-16 pb-8"
+>
           <div onClick={onClose} className="absolute inset-0 bg-black/80 backdrop-blur-md" />
-          
+          <AnimatePresence>
+            {toast.show && (
+              <motion.div
+                initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: 20, scale: 0.95 }}
+                className={`fixed bottom-10 left-1/2 -translate-x-1/2 z-[999999] flex items-center gap-3 px-4 md:px-6 py-3 rounded-2xl shadow-[0_0_30px_rgba(0,0,0,0.5)] border backdrop-blur-xl w-[90%] max-w-sm sm:max-w-md ${
+                  toast.type === 'error'
+                    ? 'bg-red-500/10 border-red-500/30 text-red-400'
+                    : 'bg-[#1E90FF]/10 border-[#1E90FF]/30 text-[#1E90FF]'
+                }`}
+              >
+                <div className="shrink-0">
+                  {toast.type === 'error' ? <AlertCircle size={20} /> : <CheckCircle2 size={20} />}
+                </div>
+                <p className="text-sm font-bold tracking-wide break-words">{toast.message}</p>
+                <button onClick={() => setToast({ ...toast, show: false })} className="ml-auto opacity-70 hover:opacity-100 transition-opacity">
+                  <X size={16} />
+                </button>
+              </motion.div>
+            )}
+          </AnimatePresence>
           <motion.div 
             key="modal-content"
             initial={{ opacity: 0, scale: 0.95, y: 20 }} animate={{ opacity: 1, scale: 1, y: 0 }} exit={{ opacity: 0, scale: 0.95, y: 20 }} 
@@ -397,8 +429,6 @@ function PaymentModal({ isOpen, onClose, plan, isAnnual }) {
                 )}
               </AnimatePresence>
             </div>
-
-          
           </motion.div>
         </motion.div>
       )}
