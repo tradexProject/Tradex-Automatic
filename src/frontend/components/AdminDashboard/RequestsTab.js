@@ -1,9 +1,10 @@
 import React, { useState, useMemo } from 'react';
-import { Loader2, CheckCircle2, XCircle, Eye, Clock, X, Phone, Mail, Hash, Calendar, Search, Filter, ArrowUpDown, Wallet } from 'lucide-react';
+import { Loader2, CheckCircle2, XCircle, Eye, Clock, X, Phone, Mail, Hash, Calendar, Search, Filter, ArrowUpDown, Wallet, Copy, Check } from 'lucide-react';
 
 export default function RequestsTab({ requests, processRequest, processingId, handleOpenReject }) {
   const [detailsModalOpen, setDetailsModalOpen] = useState(false);
   const [selectedRequest, setSelectedRequest] = useState(null);
+  const [copied, setCopied] = useState(false);
   
   const [activeTab, setActiveTab] = useState('pending'); 
   const [searchQuery, setSearchQuery] = useState('');
@@ -36,6 +37,15 @@ export default function RequestsTab({ requests, processRequest, processingId, ha
   const handleViewDetails = (req) => {
     setSelectedRequest(req);
     setDetailsModalOpen(true);
+    setCopied(false); 
+  };
+
+  const handleCopyTxnId = () => {
+    if (selectedRequest?.transactionId) {
+      navigator.clipboard.writeText(selectedRequest.transactionId);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000); 
+    }
   };
 
   const formatDate = (dateString) => {
@@ -225,12 +235,22 @@ export default function RequestsTab({ requests, processRequest, processingId, ha
                 </div>
               </div>
 
-              <div className="flex items-start gap-3 p-3 bg-[#1E90FF]/5 rounded-xl border border-[#1E90FF]/20">
-                <Hash className="text-[#1E90FF] mt-0.5 shrink-0" size={16} />
-                <div className="min-w-0">
-                  <p className="text-[10px] text-[#1E90FF] font-bold uppercase tracking-widest">Transaction ID</p>
-                  <p className="text-xs md:text-sm font-mono font-bold text-white tracking-widest break-words">{selectedRequest.transactionId}</p>
+              <div className="flex items-center justify-between gap-3 p-3 bg-[#1E90FF]/5 rounded-xl border border-[#1E90FF]/20 group">
+                <div className="flex items-start gap-3 min-w-0">
+                  <Hash className="text-[#1E90FF] mt-0.5 shrink-0" size={16} />
+                  <div className="min-w-0">
+                    <p className="text-[10px] text-[#1E90FF] font-bold uppercase tracking-widest">Transaction ID</p>
+                    <p className="text-xs md:text-sm font-mono font-bold text-white tracking-widest break-words">{selectedRequest.transactionId}</p>
+                  </div>
                 </div>
+                
+                <button 
+                  onClick={handleCopyTxnId}
+                  className="p-2.5 bg-[#1E90FF]/10 hover:bg-[#1E90FF]/20 text-[#1E90FF] rounded-lg transition-colors shrink-0"
+                  title="Copy Transaction ID"
+                >
+                  {copied ? <Check size={16} /> : <Copy size={16} />}
+                </button>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
