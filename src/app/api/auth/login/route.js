@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
 import { checkRateLimit } from '../../../../backend/utils/rateLimit';
 const { User } = require("../../../../backend/models/user"); 
+import jwt from 'jsonwebtoken';
 
 const loginSchema = z.object({
   email: z.string().email("Invalid email format"),
@@ -48,7 +48,7 @@ export async function POST(req) {
     const token = jwt.sign(
       { id: admin.id, email: admin.email, isAdmin: true },
       process.env.JWT_SECRET,
-      { expiresIn: "1d" }
+      { expiresIn: "15m" } 
     );
 
     return NextResponse.json({ 
