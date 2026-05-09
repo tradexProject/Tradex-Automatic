@@ -84,6 +84,31 @@ export default function AdminDashboard() {
     return () => clearInterval(intervalId);
   }, [fetchDashboardData]);
 
+  useEffect(() => {
+    let inactivityTimer;
+
+    const resetTimer = () => {
+      if (inactivityTimer) clearTimeout(inactivityTimer);
+      
+      inactivityTimer = setTimeout(() => {
+        showToast("Session expired due to inactivity. Logging out...", "error");
+        setTimeout(() => {
+          handleLogout();
+        }, 1500);
+      }, 15 * 60 * 1000); 
+    };
+
+    resetTimer();
+
+    const events = ['mousemove', 'mousedown', 'keydown', 'scroll', 'touchstart'];
+    events.forEach(event => document.addEventListener(event, resetTimer));
+
+    return () => {
+      if (inactivityTimer) clearTimeout(inactivityTimer);
+      events.forEach(event => document.removeEventListener(event, resetTimer));
+    };
+  }, []);
+
   const handleLogout = () => {
     localStorage.removeItem('admin_token');
     router.replace('/');
