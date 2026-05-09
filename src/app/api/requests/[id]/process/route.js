@@ -14,6 +14,12 @@ const transporter = nodemailer.createTransport({
 });
 const tradeXLogo = `<span style="font-family: Arial, sans-serif; font-weight: 600; letter-spacing: 1px; color: #111;">Trade<span style="color: #1E90FF;">X</span></span>`;
 
+// =========================================================================
+// ⚙️ Support Link Configuration
+// =========================================================================
+const SUPPORT_LINK = "https://t.me/+6rlsxZgNZy1kNzM0";
+// =========================================================================
+
 export async function POST(req, { params }) {
   const auth = verifyAdmin(req);
   if (!auth.success) {
@@ -55,15 +61,16 @@ export async function POST(req, { params }) {
         to: requestItem.email,
         subject: 'Update regarding your TradeX subscription',
         html: `
-          <div style="font-family: Arial, sans-serif; padding: 20px; border: 1px solid #eee; color: #000;">
-            <div style="margin-bottom: 20px; font-size: 24px;">${tradeXLogo}</div>
-            <h2 style="color: #1E90FF; margin-top: 0;">Hello,</h2>
+          <div style="font-family: Arial, sans-serif; padding: 20px; border: 1px solid #eee; color: #000; max-width: 500px; margin: 0 auto; border-radius: 8px;">
+            <div style="margin-bottom: 20px; font-size: 24px; text-align: center;">${tradeXLogo}</div>
+            <h2 style="color: #1E90FF; margin-top: 0; text-align: center;">Hello,</h2>
             <p>We regret to inform you that your subscription request for the <strong>${requestItem.planName}</strong> plan was not approved.</p>
             <div style="background: #fafafa; padding: 15px; border-left: 4px solid #ef4444; margin: 20px 0;">
               <strong>Reason:</strong> ${rejectReason}
             </div>
-            <p>Transaction ID: <span style="font-family: monospace;">${requestItem.transactionId}</span></p>
-            <p>Please review your payment details or contact ${tradeXLogo} Support.</p>
+            <p>Transaction ID: <span style="font-family: monospace;">${requestItem.transactionId}</span></p>           
+            <p style="margin-bottom: 5px;">Please review your payment details or contact ${tradeXLogo} Support.</p>        
+            <p style="margin: 0; color: #666; font-size: 14px;">If you face any issues or have questions, please <a href="${SUPPORT_LINK}" style="color: #1E90FF; text-decoration: none; font-weight: bold;">contact our support team</a>.</p>
           </div>
         `
       });
@@ -97,7 +104,7 @@ export async function POST(req, { params }) {
         to: requestItem.email,
         subject: 'Your TradeX Subscription is Active! 🚀',
         html: `
-          <div style="font-family: Arial, sans-serif; text-align: center; padding: 30px; border: 1px solid #eee; color: #000;">
+          <div style="font-family: Arial, sans-serif; text-align: center; padding: 30px; border: 1px solid #eee; color: #000; max-width: 500px; margin: 0 auto; border-radius: 8px;">
             <div style="margin-bottom: 20px; font-size: 32px;">${tradeXLogo}</div>
             <h2 style="color: #1E90FF; margin-top: 0;">Welcome Aboard!</h2>
             <p>Your subscription for the <strong>${requestItem.planName}</strong> plan has been successfully approved.</p>
@@ -106,7 +113,8 @@ export async function POST(req, { params }) {
               ${availableCode.activationCode}
             </div>
             
-            <p style="color: #666; font-size: 14px;">Use this activation code to access your services.</p>
+            <p style="margin-bottom: 5px; color: #666; font-size: 14px;">Use this activation code to access your services.</p>
+            <p style="margin: 0; color: #666; font-size: 14px;">If you face any issues or need assistance getting started, please <a href="${SUPPORT_LINK}" style="color: #1E90FF; text-decoration: none; font-weight: bold;">reach out to us</a>.</p>
           </div>
         `
       });
