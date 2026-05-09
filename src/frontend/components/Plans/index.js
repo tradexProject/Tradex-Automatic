@@ -92,7 +92,6 @@ function SubscriptionForm({ formData, setFormData, errors, setErrors, isSubmitti
   );
 }
 
-
 function PaymentModal({ isOpen, onClose, plan, isAnnual }) {
   const [step, setStep] = useState(1);
   const [selectedMethod, setSelectedMethod] = useState(null);
@@ -123,15 +122,15 @@ function PaymentModal({ isOpen, onClose, plan, isAnnual }) {
   const price = isAnnual ? plan.priceAnnual : plan.priceMonthly;
   
   const cryptoMethods = [
-    { id: 'usdt-trc20', name: "Tether", network: "TRC20", ticker: "USDT", address: "TJmvB3hhpadn4jc9vkwYmTPZp2GUzgoaUr", icon: "https://cryptologos.cc/logos/tether-usdt-logo.svg?v=032", popular: true, networkIcon: "https://cryptologos.cc/logos/tron-trx-logo.svg?v=032" },
-    { id: 'usdt-erc20', name: "Tether", network: "ERC20", ticker: "USDT", address: "0xad4a4bdd629347a6dd6a6ed34d460513058ee4fd", icon: "https://cryptologos.cc/logos/tether-usdt-logo.svg?v=032", networkIcon: "https://cryptologos.cc/logos/ethereum-eth-logo.svg?v=032" },
-    { id: 'usdt-bep20', name: "Tether", network: "BEP20", ticker: "USDT", address: "0xad4a4bdd629347a6dd6a6ed34d460513058ee4fd", icon: "https://cryptologos.cc/logos/tether-usdt-logo.svg?v=032", networkIcon: "https://cryptologos.cc/logos/bnb-bnb-logo.svg?v=032" },
-    { id: 'btc', name: "Bitcoin", network: "Bitcoin", ticker: "BTC", address: "1H4cusB6Q5STE75PzEkULEYv7HBLEx8h6Q", icon: "https://cryptologos.cc/logos/bitcoin-btc-logo.svg?v=032", popular: true },
-    { id: 'eth', name: "Ethereum", network: "ERC20", ticker: "ETH", address: "0xad4a4bdd629347a6dd6a6ed34d460513058ee4fd", icon: "https://cryptologos.cc/logos/ethereum-eth-logo.svg?v=032" },
-    { id: 'ltc', name: "Litecoin", network: "Litecoin", ticker: "LTC", address: "LeepjfhKRkjD6Au1WZMQzfP5WRjBgVFEro", icon: "https://cryptologos.cc/logos/litecoin-ltc-logo.svg?v=032" },
-    { id: 'usdc', name: "USDC", network: "ERC20", ticker: "USDC", address: "0xad4a4bdd629347a6dd6a6ed34d460513058ee4fd", icon: "https://cryptologos.cc/logos/usd-coin-usdc-logo.svg?v=032" },
-    { id: 'sol', name: "Solana", network: "Solana", ticker: "SOL", address: "5rFHP15KWcYobHi4D3fsC3fyn3fqpBnzwD4ne6tFg5XU", icon: "https://cryptologos.cc/logos/solana-sol-logo.svg?v=032" },
-    { id: 'binance', name: "Binance Pay", network: "Binance ID", ticker: "PAY", address: "456263937", icon: "https://cryptologos.cc/logos/bnb-bnb-logo.svg?v=032", popular: true },
+    { id: 'usdt-trc20', name: "Tether", network: "TRC20", ticker: "USDT", address: "TJmvB3hhpadn4jc9vkwYmTPZp2GUzgoaUr", icon: "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png", popular: true, networkIcon: "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/tron/info/logo.png" },
+    { id: 'usdt-erc20', name: "Tether", network: "ERC20", ticker: "USDT", address: "0xad4a4bdd629347a6dd6a6ed34d460513058ee4fd", icon: "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png", networkIcon: "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/info/logo.png" },
+    { id: 'usdt-bep20', name: "Tether", network: "BEP20", ticker: "USDT", address: "0xad4a4bdd629347a6dd6a6ed34d460513058ee4fd", icon: "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png", networkIcon: "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/binance/info/logo.png" },
+    { id: 'btc', name: "Bitcoin", network: "Bitcoin", ticker: "BTC", address: "1H4cusB6Q5STE75PzEkULEYv7HBLEx8h6Q", icon: "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/bitcoin/info/logo.png", popular: true },
+    { id: 'eth', name: "Ethereum", network: "ERC20", ticker: "ETH", address: "0xad4a4bdd629347a6dd6a6ed34d460513058ee4fd", icon: "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/info/logo.png" },
+    { id: 'ltc', name: "Litecoin", network: "Litecoin", ticker: "LTC", address: "LeepjfhKRkjD6Au1WZMQzfP5WRjBgVFEro", icon: "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/litecoin/info/logo.png" },
+    { id: 'usdc', name: "USDC", network: "ERC20", ticker: "USDC", address: "0xad4a4bdd629347a6dd6a6ed34d460513058ee4fd", icon: "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png" },
+    { id: 'sol', name: "Solana", network: "Solana", ticker: "SOL", address: "5rFHP15KWcYobHi4D3fsC3fyn3fqpBnzwD4ne6tFg5XU", icon: "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/solana/info/logo.png" },
+    { id: 'binance', name: "Binance Pay", network: "Binance ID", ticker: "PAY", address: "456263937", icon: "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/binance/info/logo.png", popular: true },
   ];
 
   const handleCopy = (text, id) => {
@@ -323,11 +322,11 @@ function PaymentModal({ isOpen, onClose, plan, isAnnual }) {
                           <div className="flex items-center gap-4 relative z-10">
                             <div className="relative">
                               <div className="w-12 h-12 rounded-full bg-black/40 p-2.5 flex items-center justify-center border border-white/5">
-                                <img src={method.icon} alt={method.name} className="w-full h-full object-contain" />
+                                <img src={method.icon} alt={method.name} className="w-full h-full object-contain rounded-full" />
                               </div>
                               {method.networkIcon && (
                                 <div className="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-[#1c1c1e] p-[2px]">
-                                  <img src={method.networkIcon} alt="network" className="w-full h-full object-contain rounded-full bg-red-500" />
+                                  <img src={method.networkIcon} alt="network" className="w-full h-full object-contain rounded-full bg-white/5" />
                                 </div>
                               )}
                             </div>
@@ -369,7 +368,7 @@ function PaymentModal({ isOpen, onClose, plan, isAnnual }) {
                         <div className="absolute top-0 right-0 w-32 h-32 bg-[#1E90FF]/10 blur-[40px] rounded-full pointer-events-none"></div>
                         <div className="flex items-center gap-4 mb-4 pb-4 border-b border-white/5 relative z-10">
                           <div className="w-12 h-12 rounded-full bg-black/40 p-2.5 flex items-center justify-center border border-white/5">
-                            <img src={selectedMethod?.icon} alt={selectedMethod?.name} className="w-full h-full object-contain" />
+                            <img src={selectedMethod?.icon} alt={selectedMethod?.name} className="w-full h-full object-contain rounded-full" />
                           </div>
                           <div>
                             <p className="text-white text-lg font-bold">{selectedMethod?.name} ({selectedMethod?.ticker})</p>
@@ -406,7 +405,6 @@ function PaymentModal({ isOpen, onClose, plan, isAnnual }) {
     </AnimatePresence>
   );
 }
-
 
 export default function Plans() {
   const [isAnnual, setIsAnnual] = useState(false);

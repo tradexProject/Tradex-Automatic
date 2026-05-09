@@ -39,21 +39,16 @@ For a detailed explanation of all features, platform architecture, and project r
 
 ---
 
-##  Project Management Guide
+## Project Management Guide
 
-###  Editing Subscription Plans
-If you need to update prices, features, or descriptions, you can do so in the configuration file.
+### Editing Subscription Plans
+If you need to update prices, features, descriptions, or temporarily disable a plan, you can do so directly in the configuration file.
 
 **File Path:** `src/frontend/components/Plans/data.js`
 
-> [!IMPORTANT]
-> **What you can edit:**
-> - Prices (`priceMonthly`, `priceAnnual`, `oldPrice`).
-> - Descriptions and Highlight tags.
-> - Feature lists.
->
-> **What you MUST NOT change:**
-> - **`id`**: This is linked to the database logic.
-> - **`name`**: This identifies the plan in the automation engine.
+**How to Disable a Plan:**
+To mark a plan as "Sold Out" or "Currently Unavailable" (which grays out the button and prevents users from selecting it), simply set the `isDisabled` property to `true`. To reactivate it, change it back to `false`.
 
----
+```javascript
+isDisabled: true,  // Disables the plan
+isDisabled: false, // Enables the plan

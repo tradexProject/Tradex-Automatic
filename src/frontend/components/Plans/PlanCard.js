@@ -52,8 +52,16 @@ export default function PlanCard({ plan, isAnnual, onSelect, icon: Icon, isPro }
                 </li>
               ))}
             </ul>
-            <button onClick={() => onSelect(plan)} className="w-full py-4 rounded-xl bg-gradient-to-r from-[#1E90FF] to-[#60A5FA] text-white font-semibold shadow-[0_0_20px_rgba(30,144,255,0.3)] hover:shadow-[0_0_30px_rgba(30,144,255,0.5)] hover:scale-[1.02] transition-all duration-300">
-              Get Started Now
+            <button 
+              onClick={() => !plan.isDisabled && onSelect(plan)} 
+              disabled={plan.isDisabled}
+              className={`w-full py-4 rounded-xl font-semibold transition-all duration-300 ${
+                plan.isDisabled 
+                  ? 'bg-white/5 text-gray-500 cursor-not-allowed border border-white/5' 
+                  : 'bg-gradient-to-r from-[#1E90FF] to-[#60A5FA] text-white shadow-[0_0_20px_rgba(30,144,255,0.3)] hover:shadow-[0_0_30px_rgba(30,144,255,0.5)] hover:scale-[1.02]'
+              }`}
+            >
+              {plan.isDisabled ? 'Currently Unavailable' : 'Get Started Now'}
             </button>
           </div>
         </div>
@@ -80,8 +88,17 @@ export default function PlanCard({ plan, isAnnual, onSelect, icon: Icon, isPro }
           </li>
         ))}
       </ul>
-      <button onClick={() => onSelect(plan)} className="w-full py-3.5 rounded-xl border border-white/10 text-white font-medium hover:bg-[#1E90FF] hover:border-[#1E90FF] transition-all duration-300">
-        Select Plan
+      
+      <button 
+        onClick={() => !plan.isDisabled && onSelect(plan)} 
+        disabled={plan.isDisabled}
+        className={`w-full py-3.5 rounded-xl border font-medium transition-all duration-300 ${
+          plan.isDisabled 
+            ? 'border-white/5 text-gray-500 bg-white/5 cursor-not-allowed' 
+            : 'border-white/10 text-white hover:bg-[#1E90FF] hover:border-[#1E90FF]'
+        }`}
+      >
+        {plan.isDisabled ? 'Sold Out' : 'Select Plan'}
       </button>
     </motion.div>
   );

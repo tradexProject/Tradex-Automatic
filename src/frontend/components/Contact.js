@@ -3,6 +3,33 @@ import React, { useState } from 'react';
 import { Mail, Phone, MessageSquare, Send, User, HelpCircle, Loader2, AlertCircle, CheckCircle2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
+const BrandInstagram = ({ size = 18, className = "" }) => (
+  <svg width={size} height={size} className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+  </svg>
+);
+
+const BrandX = ({ size = 18, className = "" }) => (
+  <svg width={size} height={size} className={className} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
+  </svg>
+);
+
+const BrandTikTok = ({ size = 18, className = "" }) => (
+  <svg width={size} height={size} className={className} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93v7.2c0 1.96-.5 3.96-1.6 5.56-1.11 1.6-2.67 2.72-4.59 3.12-1.93.4-3.95.2-5.74-.56-1.8-.76-3.23-2.12-4.14-3.8-1.01-1.89-1.21-4.16-.54-6.19.65-1.95 2.05-3.56 3.84-4.52 1.8-.95 3.9-.99 5.85-.38V12.6c-1.3-.23-2.65-.05-3.8.59-1.14.65-2 1.65-2.4 2.89-.4 1.23-.33 2.62.2 3.8.5 1.17 1.45 2.08 2.62 2.58 1.15.5 2.48.5 3.65-.05 1.16-.55 2.05-1.5 2.47-2.68.22-.64.3-1.32.3-2V.02z" />
+  </svg>
+);
+
+const BrandDiscord = ({ size = 18, className = "" }) => (
+  <svg width={size} height={size} className={className} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189z" />
+  </svg>
+);
+// ---------------------------------------------
+
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: '',
@@ -74,7 +101,6 @@ export default function Contact() {
       }
 
       setSubmitSuccess(true);
-      // Optional: reset form after success
       setTimeout(() => {
         setSubmitSuccess(false);
         setFormData({ name: '', phone: '', email: '', reason: '', message: '' });
@@ -91,7 +117,6 @@ export default function Contact() {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
-    // Clear error when user types
     if (errors[name]) {
       setErrors(prev => ({ ...prev, [name]: null }));
     }
@@ -131,10 +156,14 @@ export default function Contact() {
               Have a question about our plans, experiencing an issue, or need a custom integration? Drop us a message and our team will get back to you instantly.
             </motion.p>
             
-            <div className="flex flex-col gap-5 sm:gap-6 w-full max-w-sm lg:max-w-none text-left">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-4 sm:gap-5 w-full max-w-sm sm:max-w-xl lg:max-w-none text-left">
               {[
                 { icon: <Mail size={18} className="sm:w-5 sm:h-5" />, label: "Email Us", value: "automatictradex@gmail.com" },
-                { icon: <Send size={18} className="sm:w-5 sm:h-5" />, label: "Telegram Channel", value: "t.me/TradeX2024", link: "https://t.me/TradeX2024" },
+                { icon: <Send size={18} className="sm:w-5 sm:h-5" />, label: "Telegram", value: "t.me/TradeX2024", link: "https://t.me/TradeX2024" },
+                { icon: <BrandInstagram size={18} className="sm:w-5 sm:h-5" />, label: "Instagram", value: "@tradexautomatic", link: "https://www.instagram.com/tradexautomatic" },
+                { icon: <BrandX size={18} className="sm:w-5 sm:h-5" />, label: "X (Twitter)", value: "@TradeXAutomatic", link: "https://x.com/TradeXAutomatic" },
+                { icon: <BrandTikTok size={18} className="sm:w-5 sm:h-5" />, label: "TikTok", value: "@tradex_2024", link: "https://www.tiktok.com/@tradex_2024" },
+                { icon: <BrandDiscord size={18} className="sm:w-5 sm:h-5" />, label: "Discord", value: "Join our Server", link: "https://discord.gg/NSme9Yv4cr" },
               ].map((item, idx) => (
                 <motion.div key={idx} variants={fadeInVariant} className="flex items-center gap-4 group cursor-default">
                   <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-[#1E90FF]/10 group-hover:border-[#1E90FF]/30 transition-colors">
@@ -143,9 +172,9 @@ export default function Contact() {
                   <div>
                     <p className="text-gray-500 text-[10px] sm:text-xs uppercase tracking-wider mb-0.5">{item.label}</p>
                     {item.link ? (
-                      <a href={item.link} target="_blank" rel="noopener noreferrer" className="text-white font-medium text-sm hover:text-[#1E90FF] transition-colors">{item.value}</a>
+                      <a href={item.link} target="_blank" rel="noopener noreferrer" className="text-white font-medium text-sm hover:text-[#1E90FF] transition-colors truncate block max-w-[150px] sm:max-w-[180px]">{item.value}</a>
                     ) : (
-                      <p className="text-white font-medium text-sm">{item.value}</p>
+                      <p className="text-white font-medium text-sm truncate block max-w-[150px] sm:max-w-[180px]">{item.value}</p>
                     )}
                   </div>
                 </motion.div>
@@ -163,13 +192,10 @@ export default function Contact() {
           >
             
             <div className="relative h-full rounded-[1.5rem] sm:rounded-[2rem] p-[1px] overflow-hidden">
-              
               <div className="absolute inset-[-100%] opacity-0 group-hover:opacity-100 transition-opacity duration-700 animate-[spin_4s_linear_infinite] bg-[conic-gradient(from_0deg_at_50%_50%,transparent_60%,#1E90FF_100%)]"></div>
-              
               <div className="absolute inset-0 rounded-[1.5rem] sm:rounded-[2rem] border border-white/5 group-hover:border-transparent transition-colors duration-500 z-10 pointer-events-none"></div>
 
               <div className="relative h-full bg-[#0a0a0a] p-6 sm:p-8 md:p-10 rounded-[calc(1.5rem-1px)] sm:rounded-[calc(2rem-1px)] flex flex-col justify-center z-20 min-h-[450px] sm:min-h-[500px]">
-                
                 <div className="absolute inset-0 overflow-hidden rounded-[calc(1.5rem-1px)] sm:rounded-[calc(2rem-1px)] pointer-events-none">
                   <div className="absolute -top-12 -right-12 w-32 h-32 bg-[#1E90FF]/20 blur-[40px] rounded-full"></div>
                 </div>

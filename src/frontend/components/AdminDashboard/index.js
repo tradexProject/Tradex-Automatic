@@ -7,8 +7,8 @@ import RequestsTab from './RequestsTab';
 import RejectModal from './RejectModal';
 import InventoryTab from './InventoryTab';
 import { motion, AnimatePresence } from 'framer-motion';
-import { AlertCircle, CheckCircle2, BellRing, X, LayoutDashboard, Users, KeySquare } from 'lucide-react';
-
+import { AlertCircle, CheckCircle2, BellRing, X, LayoutDashboard, Users, KeySquare ,UserCog } from 'lucide-react';
+import ProfileTab from './ProfileTab';
 export default function AdminDashboard() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
@@ -273,6 +273,9 @@ export default function AdminDashboard() {
         {activeTab === 'inventory' && (
           <InventoryTab codes={inventoryCodes} onAddCodes={handleAddCodes} />
         )}
+        {activeTab === 'profile' && (
+  <ProfileTab showToast={showToast} />
+)}
       </main>
       <div className="md:hidden fixed bottom-0 left-0 right-0 bg-[#0a0a0a]/95 backdrop-blur-xl border-t border-white/10 flex justify-around items-center p-2 z-[90] pb-safe">
         <button onClick={() => setActiveTab('overview')} className={`flex flex-col items-center gap-1 p-2 w-full ${activeTab === 'overview' ? 'text-[#1E90FF]' : 'text-gray-500'}`}>
@@ -290,6 +293,10 @@ export default function AdminDashboard() {
           <KeySquare size={20} />
           <span className="text-[10px] font-bold">Inventory</span>
         </button>
+        <button onClick={() => setActiveTab('profile')} className={`flex flex-col items-center gap-1 p-2 w-full ${activeTab === 'profile' ? 'text-[#1E90FF]' : 'text-gray-500'}`}>
+  <UserCog size={20} />
+  <span className="text-[10px] font-bold">Profile</span>
+</button>
       </div>
 
       <RejectModal 
