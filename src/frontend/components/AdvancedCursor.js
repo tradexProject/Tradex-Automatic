@@ -14,7 +14,7 @@ export default function SuperFastCursor() {
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d', { alpha: true }); // تحسين أداء الكانفاس
+    const ctx = canvas.getContext('2d', { alpha: true }); 
     let animationFrameId;
 
     const resize = () => {
@@ -37,6 +37,13 @@ export default function SuperFastCursor() {
     resize();
 
     const updateAndDraw = () => {
+      // التعديل 1: إيقاف عمليات الرسم والحسابات على شاشات الموبايل (أقل من 768px)
+      if (window.innerWidth < 768) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        animationFrameId = requestAnimationFrame(updateAndDraw);
+        return;
+      }
+
       const p = params.current;
       const speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
 
@@ -125,7 +132,7 @@ export default function SuperFastCursor() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 pointer-events-none z-[9999] mix-blend-screen"
+      className="hidden md:block fixed inset-0 pointer-events-none z-[9999] mix-blend-screen"
       style={{ backfaceVisibility: 'hidden' }} 
     />
   );
