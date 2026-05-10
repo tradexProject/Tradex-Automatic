@@ -44,7 +44,7 @@ export default function FloatingWidgets() {
         href="https://t.me/+6rlsxZgNZy1kNzM0"
         target="_blank"
         rel="noopener noreferrer"
-        className="p-4 bg-blue-600 hover:bg-blue-500 text-white rounded-full shadow-[0_0_20px_rgba(37,99,235,0.6)] transition-all duration-300 hover:scale-110 flex items-center justify-center animate-pulse-slow"
+        className="p-4 bg-[#2B82EE] hover:bg-blue-500 text-white rounded-full shadow-[0_0_20px_rgba(37,99,235,0.6)] transition-all duration-300 hover:scale-110 flex items-center justify-center animate-pulse-slow"
         title="Telegram Support"
       >
         <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
