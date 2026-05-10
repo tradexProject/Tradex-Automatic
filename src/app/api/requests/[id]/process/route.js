@@ -109,7 +109,7 @@ export async function POST(req, { params }) {
             <h2 style="color: #1E90FF; margin-top: 0;">Welcome Aboard!</h2>
             <p>Your subscription for the <strong>${requestItem.planName}</strong> plan has been successfully approved.</p>
             
-            <div style="background: #f4f4f4; color: #1E90FF; padding: 20px; font-size: 28px; font-weight: bold; letter-spacing: 4px; border-radius: 8px; margin: 30px auto; max-width: 400px; border: 1px solid #1E90FF;">
+            <div style="display: inline-block; background: #f4f4f4; color: #1E90FF; padding: 15px 25px; font-size: 28px; font-weight: bold; letter-spacing: 4px; border-radius: 8px; margin: 30px auto; max-width: 100%; box-sizing: border-box; word-break: break-all; border: 1px solid #1E90FF;">
               ${availableCode.activationCode}
             </div>
             
