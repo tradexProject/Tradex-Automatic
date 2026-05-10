@@ -4,7 +4,7 @@ import Contact from '../frontend/components/Contact';
 import Hero from '../frontend/components/Hero';
 import Navbar from '../frontend/components/Navbar';
 import Footer from '../frontend/components/Footer';
-import FloatingWidgets from '../frontend/components/FloatingWidgets';
+import FloatingWidgets from './FloatingWidgets';
 
 export const metadata = {
   title: {
