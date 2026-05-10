@@ -41,7 +41,7 @@ export default function FloatingWidgets() {
       </button>
 
       <a
-        href="https://t.me/+6rlsxZgNZy1kNzM0"
+        href="https://t.me/WeWillGet"
         target="_blank"
         rel="noopener noreferrer"
         className="p-4 bg-[#2B82EE] hover:bg-blue-500 text-white rounded-full shadow-[0_0_20px_rgba(37,99,235,0.6)] transition-all duration-300 hover:scale-110 flex items-center justify-center animate-pulse-slow"
