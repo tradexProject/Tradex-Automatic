@@ -15,9 +15,10 @@ const transporter = nodemailer.createTransport({
 const tradeXLogo = `<span style="font-family: Arial, sans-serif; font-weight: 600; letter-spacing: 1px; color: #111;">Trade<span style="color: #1E90FF;">X</span></span>`;
 
 // =========================================================================
-// ⚙️ Support Link Configuration
+// ⚙️ Support & VIP Links Configuration
 // =========================================================================
-const SUPPORT_LINK = "https://t.me/+6rlsxZgNZy1kNzM0";
+const SUPPORT_LINK = "https://t.me/WeWillGet";
+const VIP_GROUP_LINK = "https://t.me/+6rlsxZgNZy1kNzM0";
 // =========================================================================
 
 export async function POST(req, { params }) {
@@ -104,18 +105,35 @@ export async function POST(req, { params }) {
         to: requestItem.email,
         subject: 'Your TradeX Subscription is Active! 🚀',
         html: `
-          <div style="font-family: Arial, sans-serif; text-align: center; padding: 30px; border: 1px solid #eee; color: #000; max-width: 500px; margin: 0 auto; border-radius: 8px;">
-            <div style="margin-bottom: 20px; font-size: 32px;">${tradeXLogo}</div>
-            <h2 style="color: #1E90FF; margin-top: 0;">Welcome Aboard!</h2>
-            <p>Your subscription for the <strong>${requestItem.planName}</strong> plan has been successfully approved.</p>
-            
-            <div style="display: inline-block; background: #f4f4f4; color: #1E90FF; padding: 15px 25px; font-size: 28px; font-weight: bold; letter-spacing: 4px; border-radius: 8px; margin: 30px auto; max-width: 100%; box-sizing: border-box; word-break: break-all; border: 1px solid #1E90FF;">
-              ${availableCode.activationCode}
+          <!DOCTYPE html>
+          <html>
+          <head>
+            <style>
+              @import url('https://fonts.googleapis.com/css2?family=Sora:wght@700&display=swap');
+            </style>
+          </head>
+          <body>
+            <div style="font-family: Arial, sans-serif; text-align: center; padding: 30px; border: 1px solid #eee; color: #000; max-width: 500px; margin: 0 auto; border-radius: 8px;">
+              <div style="margin-bottom: 20px; font-size: 32px;">${tradeXLogo}</div>
+              <h2 style="color: #1E90FF; margin-top: 0;">Welcome Aboard!</h2>
+              <p>Your subscription for the <strong>${requestItem.planName}</strong> plan has been successfully approved.</p>
+              
+              <div style="display: inline-block; background: #f4f4f4; color: #1E90FF; padding: 15px 25px; font-size: 28px; font-weight: bold; letter-spacing: 4px; border-radius: 8px; margin: 30px auto; max-width: 100%; box-sizing: border-box; word-break: break-all; border: 1px solid #1E90FF;">
+                ${availableCode.activationCode}
+              </div>
+              
+              <p style="margin-bottom: 15px; color: #666; font-size: 14px;">Use this activation code to access your services.</p>
+
+              <div style="margin: 25px 0;">
+                <a href="${VIP_GROUP_LINK}" target="_blank" style="font-family: 'Sora', Arial, sans-serif; font-weight: 700; background-color: #1E90FF; color: white; text-decoration: none; padding: 14px 24px; font-size: 16px; border-radius: 6px; display: inline-block;">
+                  Join VIP Group (Setup Guide & Support)
+                </a>
+              </div>
+
+              <p style="margin: 0; color: #666; font-size: 14px;">If you face any issues or need assistance getting started, please <a href="${SUPPORT_LINK}" style="color: #1E90FF; text-decoration: none; font-weight: bold;">reach out to us</a>.</p>
             </div>
-            
-            <p style="margin-bottom: 5px; color: #666; font-size: 14px;">Use this activation code to access your services.</p>
-            <p style="margin: 0; color: #666; font-size: 14px;">If you face any issues or need assistance getting started, please <a href="${SUPPORT_LINK}" style="color: #1E90FF; text-decoration: none; font-weight: bold;">reach out to us</a>.</p>
-          </div>
+          </body>
+          </html>
         `
       });
 
