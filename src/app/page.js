@@ -1,10 +1,10 @@
-
 import Plans from '../frontend/components/Plans';
 import About from '../frontend/components/About';
 import Contact from '../frontend/components/Contact';
 import Hero from '../frontend/components/Hero';
 import Navbar from '../frontend/components/Navbar';
 import Footer from '../frontend/components/Footer';
+import FloatingWidgets from '../frontend/components/FloatingWidgets';
 
 export const metadata = {
   title: {
@@ -13,21 +13,20 @@ export const metadata = {
   },
   description: "The ultimate TradeX experience for maximum performance. Advanced automation, Real & OTC markets support, and full risk management.",
   keywords: ["TradeX", "Crypto Trading", "Trading Bot", "OTC Markets", "Trading Automation", "Risk Management"],
-
 };
 
 export default function App() {
   return (
-    < div className="min-h-screen bg-transparent text-white font-sans selection:bg-blue-500 selection:text-white overflow-hidden relative" >
-                    <Navbar />
-     <Hero />
+    <div className="min-h-screen bg-transparent text-white font-sans selection:bg-blue-500 selection:text-white overflow-hidden relative">
+      <Navbar />
+      <Hero />
       <Plans />
       <About />
       <Contact />
-   
-           <Footer />
+      <Footer />
 
-      {/* Global & Advanced Animation CSS */}
+      <FloatingWidgets />
+
       <style dangerouslySetInnerHTML={{__html: `
         * { cursor: none !important; }
         @keyframes cinematic-reveal {
