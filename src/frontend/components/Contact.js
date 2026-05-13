@@ -174,11 +174,11 @@ export default function Contact() {
             
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-4 sm:gap-5 w-full max-w-sm sm:max-w-xl lg:max-w-none text-left">
               {[
-                { icon: <Mail size={18} className="sm:w-5 sm:h-5" />, label: "Email Us", value: "automatictradex@gmail.com" },
+                { icon: <Mail size={18} className="sm:w-5 sm:h-5" />, label: "Email Us", value: "AutomaticTradeX@gmail.com" },
                 { icon: <Send size={18} className="sm:w-5 sm:h-5" />, label: "Telegram", value: "t.me/TradeX2024", link: "https://t.me/TradeX2024" },
-                { icon: <BrandInstagram size={18} className="sm:w-5 sm:h-5" />, label: "Instagram", value: "@tradexautomatic", link: "https://www.instagram.com/tradexautomatic" },
+                { icon: <BrandInstagram size={18} className="sm:w-5 sm:h-5" />, label: "Instagram", value: "@TradeXAutomatic", link: "https://www.instagram.com/tradexautomatic" },
                 { icon: <BrandX size={18} className="sm:w-5 sm:h-5" />, label: "X (Twitter)", value: "@TradeXAutomatic", link: "https://x.com/TradeXAutomatic" },
-                { icon: <BrandTikTok size={18} className="sm:w-5 sm:h-5" />, label: "TikTok", value: "@tradex_2024", link: "https://www.tiktok.com/@tradex_2024" },
+                { icon: <BrandTikTok size={18} className="sm:w-5 sm:h-5" />, label: "TikTok", value: "@TradeX_2024", link: "https://www.tiktok.com/@tradex_2024" },
                 { icon: <BrandDiscord size={18} className="sm:w-5 sm:h-5" />, label: "Discord", value: "Join our Server", link: "https://discord.gg/NSme9Yv4cr" },
               ].map((item, idx) => (
                 <motion.div key={idx} variants={fadeInVariant} className="flex items-center gap-4 group cursor-default">
