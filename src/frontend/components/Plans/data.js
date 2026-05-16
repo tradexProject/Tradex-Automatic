@@ -10,7 +10,7 @@ export const plansData = {
     priceMonthly: '49', 
     priceAnnual: '49', 
     description: 'Perfect entry into automation.',
-    isDisabled: true,
+    isDisabled: false,
     features: [
       '1 Device Access',
       'Real & OTC Markets Supported',
