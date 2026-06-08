@@ -22,7 +22,7 @@ export const plansData = {
   pro: { 
     id: 'pro',
     name: 'Professional Plan', 
-    duration: '3 Months',
+    duration: '1 Month',
     priceMonthly: '99', 
     priceAnnual: '99',
     oldPrice: '124',
@@ -42,7 +42,7 @@ export const plansData = {
   institution: { 
     id: 'institution',
     name: 'Ultimate Plan', 
-    duration: '1 Year',
+    duration: '3 Months',
     priceMonthly: '199', 
     priceAnnual: '199', 
     oldPrice: '300',
