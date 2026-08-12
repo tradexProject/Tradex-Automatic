@@ -188,7 +188,7 @@ export default function Hero() {
   execute precision trades 24/7 — automatically, without emotion, hesitation, or delay.
 </p>
 
-       /* {/* Description }
+       /* { Description }
         <p className="animate-fade-up delay-200 text-gray-400 text-base sm:text-lg md:text-xl max-w-2xl lg:max-w-3xl mx-auto mb-10 leading-relaxed font-light px-2 sm:px-0">
           TradeX is built for 
         </p>
