@@ -11,7 +11,7 @@ export const plansData = {
     priceAnnual: '45', 
     oldPrice: '50',
     description: 'Perfect entry into automation.',
-    isDisabled: true,
+    isDisabled: false,
    features: [
   '1 Device Access',
   '2 Advanced Scan Modes',
