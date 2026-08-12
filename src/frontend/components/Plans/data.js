@@ -60,7 +60,6 @@ export const plansData = {
     description: 'Maximum power. Full control.',
     isDisabled: false,
     features: [
-    features: [
   'Mutli Device Access',
   '3 Advanced Scan Modes',
   'Full Automatic Trading',
@@ -78,7 +77,6 @@ export const plansData = {
   'Advanced Risk Management',
   'Full Feature Unlock',
   'Private Setup & Premium Support'
-]
     ]
   }
 };
