@@ -180,9 +180,18 @@ export default function Hero() {
 
         {/* Description */}
         <p className="animate-fade-up delay-200 text-gray-400 text-base sm:text-lg md:text-xl max-w-2xl lg:max-w-3xl mx-auto mb-10 leading-relaxed font-light px-2 sm:px-0">
-          TradeX is built for Pocket Option, powered by institutional-grade algorithms designed to analyze markets and
+          TradeX is built for 
+        </p>
+
+                    <span className="block sm:inline-block font-bold text-[#2B82EE] sm:ml-3 md:ml-4 drop-shadow-[0_0_8px_rgba(43,130,238,0.4)]">
+            Pocket Option
+          </span>
+            
+  <p className="animate-fade-up delay-200 text-gray-400 text-base sm:text-lg md:text-xl max-w-2xl lg:max-w-3xl mx-auto mb-10 leading-relaxed font-light px-2 sm:px-0">
+, powered by institutional-grade algorithms designed to analyze markets and
           execute precision trades 24/7 — automatically, without emotion, hesitation, or delay.
         </p>
+
 
         {/* Unified CTA Button Area */}
         <div className="animate-fade-up delay-300 flex flex-col items-center gap-6 mb-16 sm:mb-20 w-full px-4 sm:px-0">
