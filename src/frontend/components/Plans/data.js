@@ -7,17 +7,22 @@ export const plansData = {
     id: 'starter',
     name: 'Starter Plan', 
     duration: '1 Month',
-    priceMonthly: '49', 
-    priceAnnual: '49', 
+    priceMonthly: '45', 
+    priceAnnual: '45', 
+    oldPrice: '50',
     description: 'Perfect entry into automation.',
     isDisabled: true,
-    features: [
-      '1 Device Access',
-      'Real & OTC Markets Supported',
-      'All Trading Pairs Included',
-      'Smooth & Beginner-Friendly Setup',
-      'Essential Automation Features'
-    ]
+   features: [
+  '1 Device Access',
+  '2 Advanced Scan Modes',
+  'Automatic Trading',
+  'Real & OTC Markets Supported',
+  'Stocks & Supported Assets',
+  'All Trading Pairs Included',
+  'Martingale & Compounding',
+  'Pocket Option Support',
+  'Lightweight & Easy Setup'
+]
   },
   pro: { 
     id: 'pro',
@@ -25,19 +30,24 @@ export const plansData = {
     duration: '1 Month',
     priceMonthly: '99', 
     priceAnnual: '99',
-    oldPrice: '124',
+    oldPrice: '130',
     highlight: 'Limited Offer',
     description: 'Built for traders ready to scale.',
     isDisabled: false,
     features: [
-      '2 Devices Access',
-      'Real & OTC Markets Supported',
-      'All Trading Pairs Included',
-      'Priority Support',
-      'Remote Full Setup Service',
-      'Advanced Risk Management',
-      'Performance Analytics'
-    ]
+  '1 Device Access',
+  '3 Advanced Scan Modes',
+  'Automatic Trading',
+  'Real & OTC Markets Supported',
+  'Stocks & Supported Assets',
+  'All Trading Pairs Included',
+  'Hands-Free AutoScanning',
+  'Custom Martingale & Compounding',
+  'Custom AutoScan Settings',
+  'Total, Success, Delay & Trade Controls',
+  'Pocket Option Support',
+  'Priority Support'
+]
   },
   institution: { 
     id: 'institution',
@@ -45,20 +55,30 @@ export const plansData = {
     duration: '3 Months',
     priceMonthly: '199', 
     priceAnnual: '199', 
-    oldPrice: '300',
+    oldPrice: '350',
     highlight: 'Limited Offer',
     description: 'Maximum power. Full control.',
     isDisabled: false,
     features: [
-      'Multi-Device Access (2+)',
-      'Real & OTC Markets Supported',
-      'All Trading Pairs Included',
-      'Private Premium Support',
-      'Multi-Account Trading',
-      'Full Remote + VPS Setup',
-      'Optimized Windows Environment',
-      'Full Risk Management System SL/TP',
-      'Advanced Analytics'
+    features: [
+  'Mutli Device Access',
+  '3 Advanced Scan Modes',
+  'Full Automatic Trading',
+  'Real & OTC Markets Supported',
+  'Stocks & Supported Assets',
+  'All Trading Pairs Included',
+  'Hands-Free AutoScanning',
+  'Double Scan Confirmation',
+  'Payout Checks',
+  'Advanced Trading Logs',
+  'Stop Loss & Take Profit',
+  'Custom Martingale & Compounding',
+  'Custom AutoScan Settings',
+  'Custom Profit, Loss & Trade Controls',
+  'Advanced Risk Management',
+  'Full Feature Unlock',
+  'Private Setup & Premium Support'
+]
     ]
   }
 };
