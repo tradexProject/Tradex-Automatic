@@ -163,7 +163,7 @@ export default function About() {
               <span className="text-white/90 font-semibold tracking-wide text-lg inline-flex items-center">
                 Trade<span className="bg-gradient-to-tr from-indigo-400 to-cyan-400 bg-clip-text text-transparent mr-1">X</span>
               </span>
-              Automatic is a next-generation **automated trading solution built primarily for Pocket Option**, designed to simplify and enhance your trading experience.
+              Automatic is a next-generation automated trading solution built primarily for Pocket Option, designed to simplify and enhance your trading experience.
               Powered by advanced algorithms, intelligent market analysis, and precision-focused execution, TradeX Automatic helps streamline your trading workflow with speed, consistency, and automation.
             </motion.p>
 
