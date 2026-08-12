@@ -180,8 +180,8 @@ export default function Hero() {
 
         {/* Description */}
         <p className="animate-fade-up delay-200 text-gray-400 text-base sm:text-lg md:text-xl max-w-2xl lg:max-w-3xl mx-auto mb-10 leading-relaxed font-light px-2 sm:px-0">
-          TradeX deploys institutional-grade algorithms to execute precision 
-          trades across global markets — 24/7, without emotion, without hesitation.
+          TradeX is built for Pocket Option, powered by institutional-grade algorithms designed to analyze markets and
+          execute precision trades 24/7 — automatically, without emotion, hesitation, or delay.
         </p>
 
         {/* Unified CTA Button Area */}
