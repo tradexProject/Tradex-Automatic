@@ -176,7 +176,7 @@ export default function Contact() {
               {[
                 { icon: <Mail size={18} className="sm:w-5 sm:h-5" />, label: "Email Us", value: "AutomaticTradeX@gmail.com" },
                 { icon: <Send size={18} className="sm:w-5 sm:h-5" />, label: "Telegram", value: "t.me/TradeX2024", link: "https://t.me/TradeX2024" },
-                { icon: <BrandYoutube size={18} className="sm:w-5 sm:h-5" />, label: "Youtube", value: "@TradeXAutomatic", link: "https://www.youtube.com/@TradeXAutomatic" },
+                { icon: <BrandYouTube size={18} className="sm:w-5 sm:h-5" />, label: "Youtube", value: "@TradeXAutomatic", link: "https://www.youtube.com/@TradeXAutomatic" },
                 { icon: <BrandX size={18} className="sm:w-5 sm:h-5" />, label: "X (Twitter)", value: "@TradeXAutomatic", link: "https://x.com/TradeXAutomatic" },
                 { icon: <BrandTikTok size={18} className="sm:w-5 sm:h-5" />, label: "TikTok", value: "@TradeX_2024", link: "https://www.tiktok.com/@tradex_2024" },
                 { icon: <BrandDiscord size={18} className="sm:w-5 sm:h-5" />, label: "Discord", value: "Join our Server", link: "https://discord.gg/dyX3C6vdHX" },
